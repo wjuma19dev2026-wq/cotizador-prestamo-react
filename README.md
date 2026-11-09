@@ -77,5 +77,5 @@ Antes de iniciar el proyecto asegúrate de tener instalado:
 1. Clona este repositorio:
 
 ```bash
-git clone <url-del-repositorio>
+git clone https://github.com/wjuma19dev2026-wq/cotizador-prestamo-react.git
 ```
