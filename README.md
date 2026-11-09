@@ -1,19 +1,81 @@
-# React + Vite
+# Cotizador de Préstamos
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Aplicación web desarrollada con React + Vite para calcular de forma rápida y visual el costo de un préstamo según el monto solicitado, la tasa de interés y el plazo de pago.
 
-Currently, two official plugins are available:
+La app permite estimar la cuota mensual, el total a pagar y el interés generado, ayudando al usuario a comparar distintas opciones de financiamiento antes de tomar una decisión.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Descripción del proyecto
 
-## React Compiler
+Este proyecto es un cotizador de préstamos diseñado para facilitar la simulación de financiamientos. Su objetivo es brindar una experiencia simple, clara y útil para cualquier persona que quiera conocer aproximadamente cuánto pagará por un préstamo.
 
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
+La aplicación toma en cuenta:
 
-Note: This will impact Vite dev & build performances.
-You can also try [the experimental native React Compiler support in plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md#rust-react-compiler) by using `compiler: true` in the plugin options instead of using the Babel plugin.
+- Monto del préstamo
+- Tasa de interés
+- Plazo de pago
+- Resultado mensual estimado
+- Total de intereses
+- Total final a pagar
 
-## Expanding the ESLint configuration
+## Características principales
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- Cálculo automático de la cuota mensual
+- Visualización del total a pagar
+- Cálculo del interés total generado
+- Ajuste dinámico según cambios en monto, tasa y plazo
+- Diseño responsivo para desktop y mobile
+- Interfaz moderna y amigable
+- Implementación con React para una experiencia más rápida
+- Desarrollo basado en Vite para un entorno ligero y eficiente
+
+## Tecnologías utilizadas
+
+- React
+- Vite
+- JavaScript
+- CSS
+- Node.js
+
+## Objetivo
+
+El objetivo principal de esta app es permitir al usuario:
+
+- Simular préstamos
+- Comparar diferentes escenarios
+- Entender cuánto pagará realmente
+- Tomar decisiones financieras con mayor información
+
+## Cómo funciona
+
+La aplicación recibe tres datos principales:
+
+1. Monto solicitado
+2. Tasa de interés anual
+3. Número de cuotas o plazo
+
+Con estos valores, calcula la cuota mensual utilizando la fórmula estándar de amortización de préstamos:
+
+Cuota = (capital × tasa) / (1 - (1 + tasa)^-n)
+
+Donde:
+
+- capital: monto del préstamo
+- tasa: tasa de interés aplicada por periodo
+- n: número total de cuotas
+
+La interfaz actualiza automáticamente los resultados cada vez que el usuario modifica cualquier valor.
+
+## Requisitos previos
+
+Antes de iniciar el proyecto asegúrate de tener instalado:
+
+- Node.js v18 o superior
+- npm o yarn
+
+## Instalación
+
+1. Clona este repositorio:
+
+```bash
+git clone <url-del-repositorio>
+```

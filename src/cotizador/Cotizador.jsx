@@ -1,8 +1,9 @@
-import { useEffect, useMemo, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { clsx } from 'cn'
 
 import { Header, Range } from './shared'
 import { Button } from './components/Button'
+
 import { MoneyFormat } from './lib/MoneyFormta'
 import { CalcTotalPagar } from './lib/CalcTotalPagar'
 
@@ -47,71 +48,80 @@ export const Cotizador = () => {
 		})()
 	}, [total, meses])
 
-	// const total = useMemo(
-	// 	() => CalcTotalPagar(cantidad, meses),
-	// 	[cantidad, meses],
-	// )
-
 	return (
-		<div className="my-20 max-w-lg mx-auto p-10 bg-white shadow">
-			<Header theme={theme} />
+		<>
+			<div className="my-20 max-w-lg mx-auto p-10 bg-white shadow">
+				<Header theme={theme} />
 
-			<div className="flex justify-between">
-				<Button
-					queryFn={handleClickDecrement}
-					content="-"
+				<div className="flex justify-between">
+					<Button
+						queryFn={handleClickDecrement}
+						content="-"
+					/>
+					<Button
+						queryFn={handleClickIncrement}
+						content="+"
+					/>
+				</div>
+
+				<Range
+					cantidad={cantidad}
+					handleChange={handleChange}
 				/>
-				<Button
-					queryFn={handleClickIncrement}
-					content="+"
-				/>
-			</div>
 
-			<Range
-				cantidad={cantidad}
-				handleChange={handleChange}
-			/>
+				<h3
+					className={clsx(
+						'text-center mt-20 text-5xl font-bold',
+						theme.textBlue,
+					)}
+				>
+					{MoneyFormat(cantidad)}
+				</h3>
 
-			<h3
-				className={clsx('text-center mt-20 text-5xl font-bold', theme.textBlue)}
-			>
-				{MoneyFormat(cantidad)}
-			</h3>
-
-			<h2 className="text-2xl font-extrabold text-gray-500 text-center mt-5">
-				Elige un <span className={clsx(theme.textBlue)}>Plazo</span> a pagar
-			</h2>
-
-			<select
-				value={meses}
-				onChange={e => {
-					setMeses(Number(e.target.value))
-				}}
-				className={clsx(
-					'mt-5 p-2 w-full bg-white border rounded-lg text-center text-xl font-bold',
-					theme.borderColor,
-				)}
-			>
-				<option value="6">6 Meses</option>
-				<option value="12">12 Meses</option>
-				<option value="24">24 Meses</option>
-			</select>
-
-			<div className="my-5 space-y-3 p-3 bg-gray-50 text-center">
-				<h2 className="text-2xl font-extrabold text-gray-500 text-center">
-					Resumen <span className={clsx(theme.textBlue)}>de pagos</span>
+				<h2 className="text-2xl font-extrabold text-gray-500 text-center mt-5">
+					Elige un <span className={clsx(theme.textBlue)}>Plazo</span> a pagar
 				</h2>
-				<p className="text-xl text-gray-500 text-center font-bold">
-					{meses} Meses
-				</p>
-				<p className="text-xl text-gray-500 text-center font-bold">
-					{MoneyFormat(total)} Total a pagar
-				</p>
-				<p className="text-xl text-gray-500 text-center font-bold">
-					{' '}
-					{MoneyFormat(pago)} Mesuales
-				</p>
+
+				<select
+					value={meses}
+					onChange={e => {
+						setMeses(Number(e.target.value))
+					}}
+					className={clsx(
+						'mt-5 p-2 w-full bg-white border rounded-lg text-center text-xl font-bold',
+						theme.borderColor,
+					)}
+				>
+					<option value="6">6 Meses</option>
+					<option value="12">12 Meses</option>
+					<option value="24">24 Meses</option>
+				</select>
+
+				<div className="my-5 space-y-3 p-3 bg-gray-50 text-center">
+					<h2 className="text-2xl font-extrabold text-gray-500 text-center">
+						Resumen <span className={clsx(theme.textBlue)}>de pagos</span>
+					</h2>
+					<p className="text-xl text-gray-500 text-center font-bold">
+						{meses} Meses
+					</p>
+					<p className="text-xl text-gray-500 text-center font-bold">
+						{MoneyFormat(total)} Total a pagar
+					</p>
+					<p className="text-xl text-gray-500 text-center font-bold">
+						{' '}
+						{MoneyFormat(pago)} Mesuales
+					</p>
+				</div>
 			</div>
-		</div>
+			<footer className="text-center mt-10">
+				<p>
+					Hecho con 💙 by{' '}
+					<span className={clsx('font-extrabold', theme.textBlue)}>
+						wjuma19dev2026
+					</span>
+				</p>
+				<p>2026 &copy; Todos los derechos reservados</p>
+			</footer>
+		</>
 	)
 }
