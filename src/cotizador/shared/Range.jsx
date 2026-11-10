@@ -7,7 +7,7 @@ export const Range = ({ cantidad, handleChange }) => {
 			value={cantidad}
 			onChange={handleChange}
 			type="range"
-			className="mt-5 w-full bg-gray-200 accent-lime-500 hover:accent-lime-600 hover:cursor-pointer"
+			className="mt-5 w-full bg-gray-200 accent-yellow-700/60 hover:accent-yellow-700/80 hover:cursor-pointer"
 		/>
 	)
 }

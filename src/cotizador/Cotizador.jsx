@@ -8,8 +8,8 @@ import { MoneyFormat } from './lib/MoneyFormta'
 import { CalcTotalPagar } from './lib/CalcTotalPagar'
 
 const theme = {
-	textBlue: 'text-blue-500',
-	borderColor: 'border-blue-300',
+	textBlue: 'text-blue-950',
+	borderColor: 'border-blue-950',
 }
 
 export const Cotizador = () => {
@@ -50,10 +50,10 @@ export const Cotizador = () => {
 
 	return (
 		<>
-			<div className="my-20 max-w-lg mx-auto p-10 bg-white shadow">
+			<div className="my-20 max-w-lg mx-auto px-10 pb-10 bg-white shadow">
 				<Header theme={theme} />
 
-				<div className="flex justify-between">
+				<div className="flex justify-between mt-5">
 					<Button
 						queryFn={handleClickDecrement}
 						content="-"
@@ -115,7 +115,7 @@ export const Cotizador = () => {
 			</div>
 			<footer className="text-center mt-10">
 				<p>
-					Hecho con 💙 by{' '}
+					Hecho con 💙 by {/*Cenitline by:{' '}*/}
 					<span className={clsx('font-extrabold', theme.textBlue)}>
 						wjuma19dev2026
 					</span>
