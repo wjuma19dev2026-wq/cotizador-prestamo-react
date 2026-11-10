@@ -112,6 +112,13 @@ export const Cotizador = () => {
 						{MoneyFormat(pago)} Mesuales
 					</p>
 				</div>
+
+				<button
+					type="button"
+					className="mt-10 block w-full rounded-full bg-green-500 px-6 py-3 text-center text-lg font-bold text-white shadow-lg transition duration-300 hover:bg-green-600"
+				>
+					Solícitalo Ya!
+				</button>
 			</div>
 			<footer className="text-center mt-10">
 				<p>
