@@ -114,6 +114,9 @@ export const Cotizador = () => {
 				</div>
 
 				<button
+					onClick={() => {
+						alert('Solicitud enviada exitosamente!')
+					}}
 					type="button"
 					className="mt-10 block w-full rounded-full bg-green-500 px-6 py-3 text-center text-lg font-bold text-white shadow-lg transition duration-300 hover:bg-green-600"
 				>
